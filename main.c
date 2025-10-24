@@ -11,6 +11,10 @@ void addCities(int maxCities, char cityNames[][30], int *cityCount);
 
 int main()
 {
+    char cityNames[MAX_CITIES][30];
+    int cityCount=0;
+    int distance[MAX_CITIES][MAX_CITIES] = {0};
+
     int choice;
     do{
         printf("\n-----LOGISTICS MANAGEMENT SYSTEM-----\n");
