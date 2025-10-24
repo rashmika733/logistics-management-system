@@ -68,11 +68,11 @@ void renameCity(char cityNames[][30], int cityCount) {
     int i = 0;
 
     if (cityCount == 0) {
-        printf("\nNo cities available to rename.\n");
+        printf("\n No cities available to rename.\n");
         return;
     }
 
-    printf("\n--- City List ---\n");
+    printf("\n---- City List ----\n");
     for (int i = 0; i < cityCount; i++) {
         printf("%d. %s\n", i + 1, cityNames[i]);
     }
@@ -97,44 +97,3 @@ void renameCity(char cityNames[][30], int cityCount) {
     printf("City renamed successfully!\n");
 }
 
-void inputDistance(int distance[][MAX_CITIES], int cityCount, char cityNames[][30]) {
-    int city1, city2, dist;
-
-    if (cityCount < 2) {
-        printf("\nAt least two cities are needed to enter distances.\n");
-        return;
-    }
-
-    printf("\n--- City List ---\n");
-    for (int i = 0; i < cityCount; i++) {
-        printf("%d. %s\n", i + 1, cityNames[i]);
-    }
-
-    printf("\nEnter source city number: ");
-    scanf("%d", &city1);
-    printf("Enter destination city number: ");
-    scanf("%d", &city2);
-
-    if (city1 < 1 || city2 < 1 || city1 > cityCount || city2 > cityCount) {
-        printf("Invalid city numbers!\n");
-        return;
-    }
-
-    if (city1 == city2) {
-        printf("Distance from a city to itself is always 0.\n");
-        return;
-    }
-
-    printf("Enter distance between %s and %s (in km): ", cityNames[city1 - 1], cityNames[city2 - 1]);
-    scanf("%d", &dist);
-
-    if (dist < 0) {
-        printf("Distance cannot be negative!\n");
-        return;
-    }
-
-    distance[city1 - 1][city2 - 1] = dist;
-    distance[city2 - 1][city1 - 1] = dist;
-
-    printf("Distance saved successfully!\n");
-}
