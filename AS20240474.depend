@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1761330351 source:c:\users\user\onedrive\desktop\logistics management system\as20240474\main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
