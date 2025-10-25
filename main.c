@@ -356,7 +356,16 @@ void showReport() {
         longest = deliveryDistance[i];
         if (deliveryDistance[i] < shortest)
             shortest = deliveryDistance[i];
-    }
+}
+    printf("\n================== REPORTS ==================\n");
+    printf("Total Deliveries Completed: %d\n", deliveryCount);
+    printf("Total Distance Covered: %.2f km\n", totalDistance);
+    printf("Average Delivery Time: %.2f hours\n", totalTime / deliveryCount);
+    printf("Total Revenue: %.2f LKR\n", totalRevenue);
+    printf("Total Profit: %.2f LKR\n", totalProfit);
+    printf("Longest Route: %.2f km\n", longest);
+    printf("Shortest Route: %.2f km\n", shortest);
+    printf("=============================================\n");
 }
 
 
