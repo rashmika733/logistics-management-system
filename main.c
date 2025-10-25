@@ -14,6 +14,7 @@ void inputDistance(int distance[][MAX_CITIES], int cityCount, char cityNames[][3
 void showDistanceTable(int distance[][MAX_CITIES], int cityCount, char cityNames[][30]);
 void showVehicles(char vehicleNames[][20], int capacities[], float rates[],float speeds[], float efficiencies[], int vehicleCount);
 void handleDelivery(int distances[][MAX_CITIES], int cityCount, char cityNames[][30]);
+void showReport();
 
 int main()
 {
@@ -27,6 +28,10 @@ int main()
     float speeds[3] = {60.0, 50.0, 45.0};
     float efficiencies[3] = {12.0, 6.0, 4.0};
     int vehicleCount = 3;
+    int source = 0;
+    int destination = 2;
+    float weight = 2000;
+    int vehicle = 1;
 
     int choice;
     do{
@@ -39,6 +44,7 @@ int main()
         printf("6. Show distance table\n");
         printf("7. Show vehicles\n");
         printf("8. Handle Delivery\n");
+        printf("9. Show Reports\n");
         printf("10.Exit\n");
         printf("Enter your choice:");
         scanf("%d",&choice);
@@ -74,6 +80,9 @@ int main()
             break;
         case 8:
             handleDelivery(distance,cityCount,cityNames);
+            break;
+        case 9:
+            showReport();
             break;
         case 10:
             printf("Exit\n");
@@ -330,4 +339,24 @@ void handleDelivery(int distances[][MAX_CITIES], int cityCount, char cityNames[]
         printf("Maximum delivery records reached!\n");
     }
 }
+void showReport() {
+    if (deliveryCount == 0) {
+        printf("No deliveries recorded yet!\n");
+        return;
+    }
+    float totalDistance = 0, totalTime = 0, totalRevenue = 0, totalProfit = 0;
+    float longest = deliveryDistance[0], shortest = deliveryDistance[0];
+
+    for (int i = 0; i < deliveryCount; i++) {
+        totalDistance += deliveryDistance[i];
+        totalTime += deliveryTime[i];
+        totalRevenue += deliveryRevenue[i];
+        totalProfit += deliveryProfit[i];
+    if (deliveryDistance[i] > longest)
+        longest = deliveryDistance[i];
+        if (deliveryDistance[i] < shortest)
+            shortest = deliveryDistance[i];
+    }
+}
+
 
