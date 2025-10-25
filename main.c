@@ -233,4 +233,8 @@ void showVehicles(char vehicleNames[][20], int capacities[], float rates[],float
                i + 1, vehicleNames[i], capacities[i], rates[i], speeds[i], efficiencies[i]);
     }
 }
-
+float deliveryDistance[MAX_DELIVERIES];
+float deliveryTime[MAX_DELIVERIES];
+float deliveryRevenue[MAX_DELIVERIES];
+float deliveryProfit[MAX_DELIVERIES];
+int deliveryCount = 0;
