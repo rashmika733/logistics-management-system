@@ -12,7 +12,7 @@ void renameCity(char cityNames[][30], int cityCount);
 void removeCity(char cityNames[][30], int *cityCount);
 void inputDistance(int distance[][MAX_CITIES], int cityCount, char cityNames[][30]);
 void showDistanceTable(int distance[][MAX_CITIES], int cityCount, char cityNames[][30]);
-
+void showVehicles(char vehicleNames[][20], int capacities[], float rates[],float speeds[], float efficiencies[], int vehicleCount);
 int main()
 {
     char cityNames[MAX_CITIES][30];
@@ -28,6 +28,7 @@ int main()
         printf("4. Display all cities\n");
         printf("5. Enter distance between cities\n");
         printf("6. Show distance table\n");
+        printf("7. Show vehicles\n");
         printf("10.Exit\n");
         printf("Enter your choice:");
         scanf("%d",&choice);
@@ -57,6 +58,9 @@ int main()
             break;
         case 6:
             showDistanceTable(distance, cityCount, cityNames);
+            break;
+        case 7:
+            showVehicles(vehicleNames,capacities,rates,speeds,efficiencies,vehicleCount);
             break;
         case 10:
             printf("Exit\n");
@@ -204,6 +208,22 @@ void showDistanceTable(int distance[][MAX_CITIES], int cityCount, char cityNames
             printf("%-10d", distance[i][j]);
         }
         printf("\n");
+    }
+}
+
+void showVehicles(char vehicleNames[][20], int capacities[], float rates[],float speeds[], float efficiencies[], int vehicleCount) {
+    int i;
+    if (vehicleCount == 0) {
+        printf("\nNo vehicles available.\n");
+        return;
+    }
+    printf("\n--- Vehicle List ---\n");
+    printf("No   Type        Capacity(kg)  Rate/km(LKR)  Speed(km/h)  Efficiency(km/l)\n");
+    printf("--------------------------------------------------------------------------\n");
+
+    for (i = 0; i < vehicleCount; i++) {
+        printf("%-4d %-12s %-12d %-14.2f %-12.2f %.2f\n",
+               i + 1, vehicleNames[i], capacities[i], rates[i], speeds[i], efficiencies[i]);
     }
 }
 
