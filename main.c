@@ -19,6 +19,13 @@ int main()
     int cityCount=0;
     int distance[MAX_CITIES][MAX_CITIES] = {0};
 
+    char vehicleNames[3][20] = {"Van","Truck","Lorry"};
+    int capacities[3] = {1000, 5000, 10000};
+    float rates[3] = {30.0, 40.0, 80.0};
+    float speeds[3] = {60.0, 50.0, 45.0};
+    float efficiencies[3] = {12.0, 6.0, 4.0};
+    int vehicleCount = 3;
+
     int choice;
     do{
         printf("\n-----LOGISTICS MANAGEMENT SYSTEM-----\n");
