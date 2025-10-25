@@ -23,6 +23,7 @@ int main()
         printf("1.Add new city\n");
         printf("2. Rename a city\n");
         printf("3. Remove a city\n");
+        printf("4. Display all cities\n");
         printf("10.Exit\n");
         printf("Enter your choice:");
         scanf("%d",&choice);
@@ -37,6 +38,16 @@ int main()
         case 3:
             removeCity(cityNames, &cityCount);
             break;
+        case 4:
+            if (cityCount == 0)
+                printf("No cities added yet.\n");
+            else {
+            printf("\nList of Cities:\n");
+            for (int i = 0; i < cityCount; i++) {
+            printf("%d. %s\n", i + 1, cityNames[i]);
+            }
+        }
+        break;
         case 10:
             printf("Exit\n");
             break;
@@ -129,5 +140,6 @@ void removeCity(char cityNames[][30], int *cityCount) {
     (*cityCount)--;
     printf("City removed successfully!\n");
 }
+
 
 
